@@ -1,0 +1,119 @@
+<!DOCTYPE html> 
+<html lang='en-US' xml:lang='en-US'> 
+<head><title>Supplementary material for
+Insertions, deletions, and exchangeable couplings:
+a Dirichlet process over TKF Potts models</title> 
+<meta charset='utf-8' /> 
+<meta content='TeX4ht (https://tug.org/tex4ht/)' name='generator' /> 
+<meta content='width=device-width,initial-scale=1' name='viewport' /> 
+<link href='supplement.css' rel='stylesheet' type='text/css' /> 
+<meta content='supplement.tex' name='src' /> 
+<script>window.MathJax = { tex: { tags: "ams", }, }; </script> 
+ <script async='async' id='MathJax-script' src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js' type='text/javascript'></script>  
+</head><body>
+<div class='maketitle'>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class='titleHead'>Supplementary material for<br />
+Insertions, deletions, and exchangeable couplings:<br />
+a Dirichlet process over TKF Potts models</h2>
+<div class='author'><span class='ec-lmr-12'>Annabel Large and Ian Holmes</span><br /><br />
+<span class='ec-lmr-12'>Department of Bioengineering, University of California, Berkeley</span><br />
+<span class='ec-lmtt-12'>{annabel_large, ihh}@berkeley.edu</span></div>
+<div class='date'></div>   
+</div>
+<section class='abstract' role='doc-abstract'> 
+<h3 class='abstracttitle'>
+<span class='ec-lmbx-10'>Abstract</span>
+</h3>     
+<!-- l. 404 --><p class='noindent'><span class='ec-lmr-10'>This supplement collects the long technical derivations referenced by the main paper. It is
+organised into five appendices that mirror the conceptual ladder of the main text. Appendix </span><a href='supplementse1.html#bdi-and-tkf-foundations'><span class='ec-lmr-10'>A</span><!-- tex4ht:ref: app:bdi  --></a>
+<span class='ec-lmr-10'>develops the finite-state CTMC and the linear birth–death–immigration process, derives the
+closed-form bridge-expectation and Fisher-score sufficient statistics for TKF91 and TKF92,
+resolves  the  L’Hôpital  singularity  at</span>  \(\insrate {}={}\delrate \)<span class='ec-lmr-10'>,  and  discusses  the  relationship  between  TKF92  and
+the  latent-boundary-free  General  Geometric  Indel  (GGI)  model.  Appendix </span><a href='supplementse2.html#em-composite-likelihoods-and-variational-inference'><span class='ec-lmr-10'>B</span><!-- tex4ht:ref: app:em  --></a>  <span class='ec-lmr-10'>collects  the
+closed-form  substitution  M-steps  for  TKF91  /  TKF92  /  </span><span class='ec-lmcsc-10'>MixDom</span><span class='ec-lmr-10'> in  their  many  GTR
+specialisations, the stochastic-variational Baum–Welch loop with its convergence theorem and
+linearised  analysis  at  stationarity,  Maraschino  (the  TKF92  cherry-distilled  generalisation  of
+CherryML)  and  its  tree-level  inference  algorithms  (FSA,  BeamASR,  VarAnc,  svi-VarAnc),
+the mixture-of-trees variational ancestral presence/absence inference, and the structural bias
+of  the  BP  cumulant  under  a  column-factorised  variational  field.  Appendix </span><a href='supplementse3.html#recursive-tkf'><span class='ec-lmr-10'>C</span><!-- tex4ht:ref: app:recursive  --></a>  <span class='ec-lmr-10'>develops  the
+recursive TKF family: </span><span class='ec-lmcsc-10'>MixDom</span><span class='ec-lmr-10'>, the hierarchical-mixture-of-domains generalisation of TKF92,
+with  its  exact  closed-form  M-step  via  six-step  chain  restoration  through  a  fully  exploded
+null-state  model;  the  order-1  Maraschino  adjacency  distillation;  algebraic  distillation  of
+</span><span class='ec-lmcsc-10'>MixDom</span><span class='ec-lmr-10'>; the </span><span class='ec-lmcsc-10'>MixDom</span><span class='ec-lmr-10'>-specific SVI-BW convergence considerations; the tree-level VEM and
+ancestral-reconstruction algorithms; the generalised phylo-HMM; the labeled-</span><span class='ec-lmcsc-10'>MixDom</span><span class='ec-lmr-10'> Singlet
+and  WFST;  and  the  recursive-grammar-elaboration  rules  together  with  worked  recursive
+examples (L-TKF, TKFST, TKFStack, TKF-Genome). Appendix </span><a href='supplementse4.html#tkfdp-dirichletprocess-potts-coupling'><span class='ec-lmr-10'>D</span><!-- tex4ht:ref: app:tkfdp  --></a> <span class='ec-lmr-10'>develops the TKF-DP
+generative  model,  the  class-level  path-measure  variational  likelihood  with  pairwise  bridge
+                                                                                         
+                                                                                         
+     
+expectations, the time-indexed gravestone-augmented pair SCFG, the SVI inference loop, and
+the pairwise alignment postprocessing landscape. Appendix </span><a href='supplementse5.html#the-infinite-pair-hmm-and-its-mcmc-sampler'><span class='ec-lmr-10'>E</span><!-- tex4ht:ref: app:phmm  --></a> <span class='ec-lmr-10'>develops the infinite Pair HMM
+as the principled fixed point and the Gibbs+MH+replica-exchange MCMC sampler that draws
+from it.</span>
+</p>
+</section>   
+<div class='tableofcontents'>
+<span class='likesectionToc'><a href='supplementli1.html#contents' id='QQ2-2-1'>Contents</a></span>
+<br />   <span class='likesectionToc'><a href='supplementli2.html#common-notation' id='QQ2-3-2'>Common notation</a></span>
+<br />   <span class='sectionToc'><a href='supplementli2.html#common-notation1'>Common notation</a></span>
+<br />   <span class='sectionToc'>A <a href='supplementse1.html#bdi-and-tkf-foundations' id='QQ2-4-4'>BDI and TKF foundations</a></span>
+<br />   <span class='subsectionToc'>A.1 <a href='supplementse1.html#the-tkf-model' id='QQ2-4-5'>The TKF91 Model</a></span>
+<br />   <span class='subsectionToc'>A.2 <a href='supplementse1.html#the-tkf-model1' id='QQ2-4-21'>The TKF92 Model</a></span>
+<br />   <span class='subsectionToc'>A.3 <a href='supplementse1.html#tkf-wfst-by-singlet-division' id='QQ2-4-31'>TKF92 WFST by Singlet Division</a></span>
+<br />   <span class='subsectionToc'>A.4 <a href='supplementse1.html#equalrate-limits-for-tkf-parameters' id='QQ2-4-49'>Equal-Rate Limits for TKF Parameters</a></span>
+<br />   <span class='subsectionToc'>A.5 <a href='supplementse1.html#tkf-score-function' id='QQ2-4-85'>TKF91 Score Function</a></span>
+<br />   <span class='subsectionToc'>A.6 <a href='supplementse1.html#general-bdi-sufficient-statistics' id='QQ2-4-96'>General BDI Sufficient Statistics</a></span>
+<br />   <span class='subsectionToc'>A.7 <a href='supplementse1.html#the-general-geometric-model' id='QQ2-4-104'>The General Geometric model</a></span>
+<br />   <span class='sectionToc'>B <a href='supplementse2.html#em-composite-likelihoods-and-variational-inference' id='QQ2-5-105'>EM, composite likelihoods, and variational inference</a></span>
+<br />   <span class='subsectionToc'>B.1 <a href='supplementse2.html#substitution-msteps-for-specific-models' id='QQ2-5-106'>Substitution M-Steps for Specific Models</a></span>
+<br />   <span class='subsectionToc'>B.2 <a href='supplementse2.html#stochastic-variational-baumwelch-convergence' id='QQ2-5-177'>Stochastic Variational Baum–Welch Convergence</a></span>
+<br />   <span class='subsectionToc'>B.3 <a href='supplementse2.html#expected-statistics-and-linearized-convergence' id='QQ2-5-205'>Expected Statistics and Linearized Convergence</a></span>
+<br />   <span class='subsectionToc'>B.4 <a href='supplementse2.html#maraschino-cherrycounts-for-tkf' id='QQ2-5-210'>Maraschino: Cherry-Counts for TKF92</a></span>
+<br />   <span class='subsectionToc'>B.5 <a href='supplementse2.html#selected-inference-algorithms-for-tkf' id='QQ2-5-226'>Selected Inference Algorithms for TKF92</a></span>
+<br />   <span class='subsectionToc'>B.6 <a href='supplementse2.html#mixtureoftrees-variational-ancestral-presenceabsence' id='QQ2-5-251'>Mixture-of-trees variational ancestral presence/absence</a></span>
+<br />   <span class='subsectionToc'>B.7 <a href='supplementse2.html#theory-structural-bias-of-the-bp-cumulant-under-columnfactorised-q' id='QQ2-5-271'>Theory: structural bias of the BP cumulant under column-factorised \(q\)</a></span>
+<br />   <span class='sectionToc'>C <a href='supplementse3.html#recursive-tkf' id='QQ2-6-278'>Recursive TKF</a></span>
+<br />   <span class='subsectionToc'>C.1 <a href='supplementse3.html#the-tkfmixed-domain-model-mixdom' id='QQ2-6-279'>The TKF-Mixed Domain Model (MixDom)</a></span>
+<br />   <span class='subsectionToc'>C.2 <a href='supplementse3.html#selected-inference-algorithms-for-mixdom' id='QQ2-6-291'>Selected Inference Algorithms for MixDom</a></span>
+<br />   <span class='subsectionToc'>C.3 <a href='supplementse3.html#exploded-mixdom-pair-hmm' id='QQ2-6-341'>Exploded MixDom Pair HMM</a></span>
+<br />   <span class='subsectionToc'>C.4 <a href='supplementse3.html#order-maraschino-distilled-adjacency-frequencies' id='QQ2-6-361'>Order-1 Maraschino: Distilled Adjacency Frequencies</a></span>
+<br />   <span class='subsectionToc'>C.5 <a href='supplementse3.html#algebraic-distillation-of-mixdom' id='QQ2-6-377'>Algebraic Distillation of MixDom</a></span>
+<br />   <span class='subsectionToc'>C.6 <a href='supplementse3.html#mixdomspecific-svibw-convergence-considerations' id='QQ2-6-424'>MixDom-Specific SVI-BW Convergence Considerations</a></span>
+<br />   <span class='subsectionToc'>C.7 <a href='supplementse3.html#variational-em-training-of-mixdom-from-treestructured-data' id='QQ2-6-443'>Variational EM training of MixDom from tree-structured data</a></span>
+<br />   <span class='subsectionToc'>C.8 <a href='supplementse3.html#mixtureoftrees-variational-mixdom-ancestral-inference' id='QQ2-6-463'>Mixture-of-trees variational MixDom ancestral inference</a></span>
+<br />   <span class='subsectionToc'>C.9 <a href='supplementse3.html#generalized-phylohmm-for-mixdom' id='QQ2-6-500'>Generalized Phylo-HMM for MixDom</a></span>
+<br />   <span class='subsectionToc'>C.10 <a href='supplementse3.html#labeledmixdom-singlet-hmm-and-wfst' id='QQ2-6-528'>Labeled-MixDom Singlet HMM and WFST</a></span>
+<br />   <span class='subsectionToc'>C.11 <a href='supplementse3.html#formal-grammar-elaboration-rules' id='QQ2-6-571'>Formal Grammar Elaboration Rules</a></span>
+<br />   <span class='subsectionToc'>C.12 <a href='supplementse3.html#recursive-tkf-models' id='QQ2-6-600'>Recursive TKF Models</a></span>
+<br />   <span class='sectionToc'>D <a href='supplementse4.html#tkfdp-dirichletprocess-potts-coupling' id='QQ2-7-631'>TKF-DP: Dirichlet-process Potts coupling</a></span>
+<br />   <span class='subsectionToc'>D.1 <a href='supplementse4.html#the-tkfdp-generative-model' id='QQ2-7-632'>The TKF-DP generative model</a></span>
+<br />   <span class='subsectionToc'>D.2 <a href='supplementse4.html#ibp-variant' id='QQ2-7-633'>IBP variant</a></span>
+<br />   <span class='subsectionToc'>D.3 <a href='supplementse4.html#site-classes-and-a-gtrparameterized-generator' id='QQ2-7-634'>Site classes and a GTR-parameterized generator</a></span>
+<br />   <span class='subsectionToc'>D.4 <a href='supplementse4.html#classlevel-variational-substitution-likelihood' id='QQ2-7-635'>Class-level variational substitution likelihood</a></span>
+<br />   <span class='subsectionToc'>D.5 <a href='supplementse4.html#augmented-indel-histories-via-a-timeindexed-pair-scfg' id='QQ2-7-639'>Augmented indel histories via a time-indexed pair SCFG</a></span>
+                                                                                         
+                                                                                         
+<br />   <span class='subsectionToc'>D.6 <a href='supplementse4.html#posterior-sampling-and-parameter-learning' id='QQ2-7-647'>Posterior sampling and parameter learning</a></span>
+<br />   <span class='subsectionToc'>D.7 <a href='supplementse4.html#pairwise-alignment-postprocessing' id='QQ2-7-659'>Pairwise alignment postprocessing</a></span>
+<br />   <span class='sectionToc'>E <a href='supplementse5.html#the-infinite-pair-hmm-and-its-mcmc-sampler' id='QQ2-8-669'>The infinite Pair HMM and its MCMC sampler</a></span>
+<br />   <span class='subsectionToc'>E.1 <a href='supplementse5.html#exact-oredge-marginal-posteriors-via-pairscfg-insideoutside' id='QQ2-8-670'>Exact 0-or-1-edge marginal posteriors via Pair-SCFG inside-outside</a></span>
+<br />   <span class='subsectionToc'>E.2 <a href='supplementse5.html#memoryaugmented-pair-hmm-the-same-content-at-ol-a' id='QQ2-8-675'>Memory-augmented Pair HMM: the same content at \(O(L^2 A^2)\)</a></span>
+<br />   <span class='subsectionToc'>E.3 <a href='supplementse5.html#the-principled-formulation-threefactor-model-and-mcmc' id='QQ2-8-676'>The principled formulation: three-factor model and MCMC</a></span>
+<br />   <span class='subsectionToc'>E.4 <a href='supplementse5.html#the-conceptual-hierarchy-infinite-phylogenetic-scfg' id='QQ2-8-686'>The conceptual hierarchy: infinite phylogenetic SCFG</a></span>
+<br />   <span class='likesectionToc'><a href='supplementli3.html#references' id='QQ2-9-689'>References</a></span>
+</div>
+
+
+
+
+
+
+ 
+</body> 
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TKF-DP — exchangeably covariant sequence evolution</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>TKF-DP</h1>
+<p class="subtitle"><em>Insertions, deletions, and exchangeable couplings: a Dirichlet process over TKF Potts models</em></p>
+<p class="authors">Annabel Large &middot; Ian Holmes &middot; UC Berkeley Bioengineering</p>
+</header>
+
+<main>
+
+<section>
+<h2>Paper</h2>
+<ul>
+<li><strong>bioRxiv preprint:</strong> <a href="https://www.biorxiv.org/content/10.64898/2026.05.16.725674v1">doi:10.64898/2026.05.16.725674v1</a></li>
+<li><strong>Supplement (PDF):</strong> <a href="supplement.pdf">supplement.pdf</a></li>
+<li><strong>Supplement (browsable HTML):</strong> <a href="supplement/supplement.html">supplement/supplement.html</a></li>
+</ul>
+</section>
+
+<section>
+<h2>Code</h2>
+<ul>
+<li><strong>Reference implementation:</strong> <a href="https://github.com/evoldoers/tkfdp">github.com/evoldoers/tkfdp</a></li>
+<li><strong>Companion library (TKF91 / TKF92 / MixDom in JAX):</strong> <a href="https://github.com/evoldoers/tkf-mixdom">github.com/evoldoers/tkf-mixdom</a></li>
+<li><strong>Dataset fetchers (Pfam / BAliBASE / OxBench):</strong> <a href="https://github.com/evoldoers/bio-datasets">github.com/evoldoers/bio-datasets</a></li>
+</ul>
+</section>
+
+<section>
+<h2>Releases</h2>
+
+<h3>evoldoers/tkfdp</h3>
+<table>
+<thead><tr><th>Tag</th><th>Contents</th></tr></thead>
+<tbody>
+<tr>
+  <td><a href="https://github.com/evoldoers/tkfdp/releases/tag/code-2026-05-19"><code>code-2026-05-19</code></a></td>
+  <td>Source-code snapshot at the bioRxiv submission, packaged as a tarball</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/evoldoers/tkfdp/releases/tag/results/K4-emwarm-top1000-2026-05-09"><code>results/K4-emwarm-top1000-2026-05-09</code></a></td>
+  <td>TKF-DP <var>K<sub>c</sub></var>=4 EM-warmup checkpoint (Pfam top-1000); backs Figs 3-5 and Table 1 row inf-PHMM-<var>K</var>=4</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/evoldoers/tkfdp/releases/tag/qprime-bali3pdbm-2026-05-16"><code>qprime-bali3pdbm-2026-05-16</code></a></td>
+  <td>Q&prime; caches (per-pair posteriors) for all 8 methods compared in Tables 1+2 (~3.6 GB across 8 tarballs)</td>
+</tr>
+</tbody>
+</table>
+
+<h3>evoldoers/tkf-mixdom</h3>
+<table>
+<thead><tr><th>Tag</th><th>Contents</th></tr></thead>
+<tbody>
+<tr>
+  <td><a href="https://github.com/evoldoers/tkf-mixdom/releases/tag/mixdom-checkpoints-2026-05"><code>mixdom-checkpoints-2026-05</code></a></td>
+  <td>MixDom-d3f1, TKF92-<var>K</var>=20, CherryML-<var>C</var>=20 NPZ checkpoints (3 files, ~210 KB total)</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>Reproduction</h2>
+<p>The end-to-end recipe (training, evaluation, figure generation) lives at
+<a href="https://github.com/evoldoers/tkfdp/blob/main/REPRODUCTION_MANIFEST.md"><code>REPRODUCTION_MANIFEST.md</code></a> in the code repo.</p>
+</section>
+
+</main>
+
+<footer>
+<p>Paper &amp; figures: CC-BY 4.0. Code: see <a href="https://github.com/evoldoers/tkfdp/blob/main/LICENSE">LICENSE</a>.</p>
+</footer>
+</body>
+</html>
