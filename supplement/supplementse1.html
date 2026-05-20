@@ -6,7 +6,7 @@
 <meta content='width=device-width,initial-scale=1' name='viewport' /> 
 <link href='supplement.css' rel='stylesheet' type='text/css' /> 
 <meta content='supplement.tex' name='src' /> 
-<script>window.MathJax = { tex: { tags: "ams", }, }; </script> 
+<script src="mathjax-macros.js"></script> 
  <script async='async' id='MathJax-script' src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js' type='text/javascript'></script>  
 </head><body>
 <!-- l. 484 --><div class='crosslinks'><p class='noindent'>[<a href='supplementse2.html'>next</a>] [<a href='supplementli2.html'>prev</a>] [<a href='supplementli2.html#tailsupplementli2.html'>prev-tail</a>] [<a href='#tailsupplementse1.html'>tail</a>] [<a href='supplement.html#supplementse1.html'>up</a>] </p></div>
@@ -273,7 +273,8 @@ exponential. The linear algebraic interpretation was further remarked upon by Bo
 behavior analogous to an affine gap penalty (<a href='supplementli3.html#XThorneEtAl92'>51</a>). Instead of each mortal link getting a single character
 from \(\alphabet \), each link is associated with a fragment consisting of \(\fraglen \geq 1\) characters from \(\alphabet \), where \(\fraglen \sim \geomdist (\ext )\). We write this as \[ \seq '(\evoltime ) \sim \tkffrags (\subproc (\exch ,\eqm );\insrate ,\delrate ,\ext ) \]
 where \(\seq ' \in (\alphabet ^+)^\ast \) is a sequence of multi-character fragments. Specifically \[ \tkffrags (\subproc (\exch ,\eqm );\insrate ,\delrate ,\ext ) \equiv \tkflinks (\fragproc (\subproc (\exch ,\eqm );\ext );\insrate ,\delrate ) \] where \(\fragproc (\model ,\ext )\) denotes a tuple of \(\fraglen \) i.i.d. random
-variables, each governed by \(\model \), and \(\fraglen \) is geometrically-distributed with parameter \(\ext \) \[ \state \sim \fragproc (\model ,\ext )\ \Leftrightarrow \\fraglen \sim \geomdist (\ext ), \ \state = (x_1 \ldots x_\fraglen ),\ x_\sumidx \sim \model \] The TKF92 model thus
+variables, each governed by \(\model \), and \(\fraglen \) is geometrically-distributed with parameter \(\ext \) \[ \state \sim \fragproc (\model ,\ext )\ \Leftrightarrow \
+\fraglen \sim \geomdist (\ext ), \ \state = (x_1 \ldots x_\fraglen ),\ x_\sumidx \sim \model \] The TKF92 model thus
 has the same BDI process as TKF91, but with a more complex substitution process that emits fragments
 instead of single characters.
 </p><!-- l. 26 --><p class='noindent'>

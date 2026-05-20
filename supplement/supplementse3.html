@@ -6,7 +6,7 @@
 <meta content='width=device-width,initial-scale=1' name='viewport' /> 
 <link href='supplement.css' rel='stylesheet' type='text/css' /> 
 <meta content='supplement.tex' name='src' /> 
-<script>window.MathJax = { tex: { tags: "ams", }, }; </script> 
+<script src="mathjax-macros.js"></script> 
  <script async='async' id='MathJax-script' src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js' type='text/javascript'></script>  
 </head><body>
 <!-- l. 545 --><div class='crosslinks'><p class='noindent'>[<a href='supplementse4.html'>next</a>] [<a href='supplementse2.html'>prev</a>] [<a href='supplementse2.html#tailsupplementse2.html'>prev-tail</a>] [<a href='#tailsupplementse3.html'>tail</a>] [<a href='supplement.html#supplementse3.html'>up</a>] </p></div>
@@ -66,7 +66,8 @@ class \(\class \sim \catdist (\classdist _{\dom \frag 1}, \ldots , \classdist _{
 </p><!-- l. 41 --><p class='indent'>   We denote the per-domain process (TKF92 fragments with an intra-fragment fragment-type chain
 and per-(domain, fragment-type) site-class mixture) by \(\hmmproc (\{\exch ^{(\class )},\eqm ^{(\class )}\}_\class ;\ext ^{(\dom )},\classdist _\dom )\). The full MixDom model is then
 </p><div class='eqnarray'>\begin {eqnarray*}  M_{\text {dom}} &amp; = &amp; \tkflinks (\hmmproc (\{\exch ^{(\class )},\eqm ^{(\class )}\}_\class ;\ext ^{(\dom )},\classdist _\dom );\insrate _\dom ,\delrate _\dom ) \\ \text {MixDom} &amp; = &amp; \tkflinks (\mixture _{\dom \sim \domdist _\dom }(M_{\text {dom}});\insrate _\main ,\delrate _\main )  \end {eqnarray*}</div>
-<!-- l. 49 --><p class='indent'>   where \(\mixture (\ldots )\) denotes a mixture model, with weights \(p\), over parameters \(\theta \) for model \(M\) \[ \state \sim \mixture _{\sumidx \sim p}(\model (\theta _\sumidx );p)\ \Leftrightarrow \\sumidx \sim \catdist (p),\ \state \sim \model (\theta _\sumidx ) \]
+<!-- l. 49 --><p class='indent'>   where \(\mixture (\ldots )\) denotes a mixture model, with weights \(p\), over parameters \(\theta \) for model \(M\) \[ \state \sim \mixture _{\sumidx \sim p}(\model (\theta _\sumidx );p)\ \Leftrightarrow \
+\sumidx \sim \catdist (p),\ \state \sim \model (\theta _\sumidx ) \]
 </p>   
 <div class='newtheorem'>
 <!-- l. 55 --><p class='noindent'><span class='head'>
@@ -113,7 +114,8 @@ respectively. The \(8 \times 8\) transition matrix for this null-separated joint
 of transitions between the empty states \(\mnull ,\inull ,\dnull \) \[ \slicetrans _{\mnull \inull \dnull ,\mnull \inull \dnull } = \left ( \begin {array}{r|cccc} &amp; \ldots &amp; \mnull &amp; \inull &amp; \dnull \\ \hline \ldots &amp; \ldots &amp; \ldots &amp; \ldots &amp; \ldots \\ \mnull &amp; \ldots &amp; \emptyseg _\evoltime \tkftrans _{\mat \mat } &amp; \emptyseg _0 \tkftrans _{\mat \ins } &amp; \emptyseg _0 \tkftrans _{\mat \del } \\ \inull &amp; \ldots &amp; \emptyseg _\evoltime \tkftrans _{\ins \mat } &amp; \emptyseg _0 \tkftrans _{\ins \ins } &amp; \emptyseg _0 \tkftrans _{\ins \del } \\ \dnull &amp; \ldots &amp; \emptyseg _\evoltime \tkftrans _{\del \mat } &amp; \emptyseg _0 \tkftrans _{\del \ins } &amp; \emptyseg _0 \tkftrans _{\del \del } \end {array} \right ) \] where the unshown rows and columns (corresponding to
 transitions to, from, or between \(\sta ,\mat ,\ins ,\del ,\fin \)) have zero entries. Summing over paths of all (including zero) lengths via
 \(\mnull ,\inull ,\dnull \) (i.e. performing the Schur complement) yields \[ \sum _{\sumidx =0}^\infty \slicetrans _{\mnull \inull \dnull ,\mnull \inull \dnull }^\sumidx = (I - \slicetrans _{\mnull \inull \dnull ,\mnull \inull \dnull })^{-1} = \nullpathsum \] which has a relatively simple closed form (reducing to \(3 \times 3\)
-matrix inversion). The effective nonempty \(5 \times 5\) transition matrix (with \(\mnull ,\inull ,\dnull \) summed out) is \[ \nonemptytrans \equiv \nonemptytrans (\theta ,\evoltime ) = \slicetrans _{\sta \mat \ins \del \fin ,\sta \mat \ins \del \fin } \ +\\slicetrans _{\sta \mat \ins \del \fin ,\mnull \inull \dnull } \cdot \nullpathsum \cdot \slicetrans _{\mnull \inull \dnull ,\sta \mat \ins \del \fin } \] where
+matrix inversion). The effective nonempty \(5 \times 5\) transition matrix (with \(\mnull ,\inull ,\dnull \) summed out) is \[ \nonemptytrans \equiv \nonemptytrans (\theta ,\evoltime ) = \slicetrans _{\sta \mat \ins \del \fin ,\sta \mat \ins \del \fin } \ +\
+\slicetrans _{\sta \mat \ins \del \fin ,\mnull \inull \dnull } \cdot \nullpathsum \cdot \slicetrans _{\mnull \inull \dnull ,\sta \mat \ins \del \fin } \] where
 \(\theta = (\insrate _\main ,\delrate _\main ,\{\domdist _\dom \},\{\insrate _\dom ,\delrate _\dom \},\{\fragdist _{\dom \frag }\},\{\ext ^{(\dom )}_{\srcfrag \destfrag }\},\{\classdist _{\dom \frag \class }\},\{\exch ^{(\class )},\eqm ^{(\class )}\})\).
 </p><!-- l. 244 --><p class='indent'>   Following null state elimination, the collapsed Pair HMM has \(5\ndom \nfrag +2\) states, namely \[\nonemptystates = \{ \sta \sta , \fin \fin \} \cup \{ \ustate \xstate _{\srcdom \srcfrag }: \ustate \xstate \in \{\mat \mat ,\mat \ins ,\mat \del ,\ins \ins ,\del \del \}, 1 \leq \srcdom \leq \ndom , 1 \leq \srcfrag \leq \nfrag \}\] where \(\srcdom \) is a
 domain index and \(\srcfrag \) is a fragment index. For notational convenience, we treat the distinguished
@@ -1213,7 +1215,13 @@ a particular adjacency type.
 </p>   
 <h5 class='subsubsectionHead' id='cherrycount-likelihood-for-the-mixdom-pair-hmm'><span class='titlemark'>C.4.2   </span> <a href='supplementli1.html#QQ2-6-363' id='x6-358000C.4.2'>Cherry-count likelihood for the MixDom Pair HMM</a></h5>
 <!-- l. 90 --><p class='noindent'>The cherry-count tensors of Section <a href='#cherrycount-summary-statistics'>C.4.1<!-- tex4ht:ref: sec:maraschino-counts  --></a> are scored against the collapsed MixDom Pair HMM \(\transnest (\theta ,\evoltime )\) defined
-by equation (<a href='#x6-279002r2'>C.2<!-- tex4ht:ref: eq:mixdom_transitions  --></a>) of Section <a href='#the-mixdom-model'>C.1.1<!-- tex4ht:ref: sec:nestpairhmm  --></a>. The free parameters are \[ \theta = \big (\insrate _\main , \delrate _\main ,\\{\insrate _\dom , \delrate _\dom \}_{\dom =1}^{\ndom },\\{\domdist _\dom \}_{\dom =1}^{\ndom },\\{\fragdist _{\dom \frag }\}_{\dom ,\frag },\\{\ext ^{(\dom )}_{\srcfrag \destfrag }\}_{\dom ,\srcfrag ,\destfrag },\\{\classdist _{\dom \frag \class }\}_{\dom ,\frag ,\class },\\{\eqm ^{(\class )}, \exch ^{(\class )}\}_{\class =1}^{\nclasses }\big ), \] parameterised in unconstrained space
+by equation (<a href='#x6-279002r2'>C.2<!-- tex4ht:ref: eq:mixdom_transitions  --></a>) of Section <a href='#the-mixdom-model'>C.1.1<!-- tex4ht:ref: sec:nestpairhmm  --></a>. The free parameters are \[ \theta = \big (\insrate _\main , \delrate _\main ,\
+\{\insrate _\dom , \delrate _\dom \}_{\dom =1}^{\ndom },\
+\{\domdist _\dom \}_{\dom =1}^{\ndom },\
+\{\fragdist _{\dom \frag }\}_{\dom ,\frag },\
+\{\ext ^{(\dom )}_{\srcfrag \destfrag }\}_{\dom ,\srcfrag ,\destfrag },\
+\{\classdist _{\dom \frag \class }\}_{\dom ,\frag ,\class },\
+\{\eqm ^{(\class )}, \exch ^{(\class )}\}_{\class =1}^{\nclasses }\big ), \] parameterised in unconstrained space
 (log-rates, log-Dirichlet weights, log-exchangeabilities) so that gradient methods are unconstrained. Note
 in particular: </p>
                                                                                          
@@ -5733,7 +5741,8 @@ constitute tree-adjoining moves on the space of grammars.
 associated with a character, or (with probability \((1 - \tok _\srcdom ) \domdist _{\srcdom \destdom }\) associated with its own independently-evolving links
 model of domain type \(\destdom \). Links models can thus be nested <span class='ec-lmri-10x-x-109'>ad infinitum</span> </p><div class='eqnarray'>\begin {eqnarray*}  \model _\srcdom &amp; = &amp; \tkflinks (\mixture _{\sumidx \sim \tok }(L^{(\sumidx )}_\srcdom );\insrate _\srcdom ,\delrate _\srcdom ) \\ L^{(1)}_\srcdom &amp; = &amp; \hmmproc (\{\exch ^{(\class )},\eqm ^{(\class )}\}_\class ;\ext ^{(\srcdom )},\classdist _\srcdom ) \\ L^{(0)}_\srcdom &amp; = &amp; \mixture _{\destdom \sim \domdist _\destdom }(\model _\destdom )  \end {eqnarray*}</div>
 <!-- l. 51 --><p class='indent'>   where \(\hmmproc \) denotes the Markovian fragment process (Section <a href='#the-mixdom-model'>C.1.1<!-- tex4ht:ref: sec:mixdom  --></a>), and \(\mixture _{\sumidx \sim \tok }\) is defined for the Bernoulli index
-variable \(\sumidx \) and probability \(\tok \) as it was for categorical index variables \[ \state \sim \mixture _{\sumidx \sim p}(\model (\theta _\sumidx );p)\ \Leftrightarrow \\sumidx \sim \berndist (p),\ \state \sim \model (\theta _\sumidx ) \]
+variable \(\sumidx \) and probability \(\tok \) as it was for categorical index variables \[ \state \sim \mixture _{\sumidx \sim p}(\model (\theta _\sumidx );p)\ \Leftrightarrow \
+\sumidx \sim \berndist (p),\ \state \sim \model (\theta _\sumidx ) \]
 </p><!-- l. 58 --><p class='indent'>   We postpone the TKF92-like augmentations of \(L^{(1)}_\srcdom \) (fragment types \(\frag \) and site classes \(\class \)) for now, and start
 with a simplified TKF91-like version that allows full recursively-nested domains but allows only
 single-character fragments with one site class per domain </p><div class='eqnarray'>\begin {eqnarray*}  \model '_\srcdom &amp; = &amp; \tkflinks (\mixture _{\sumidx \sim \tok }(L'^{(\sumidx )}_\srcdom );\insrate _\srcdom ,\delrate _\srcdom ) \\ L'^{(1)}_\srcdom &amp; = &amp; \subproc (\exch _\srcdom ,\eqm _\srcdom ) \\ L'^{(0)}_\srcdom &amp; = &amp; \mixture _{\destdom \sim \domdist _\srcdom }(\model '_\destdom )  \end {eqnarray*}</div>
